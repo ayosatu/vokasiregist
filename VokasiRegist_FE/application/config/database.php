@@ -75,9 +75,9 @@ $query_builder = TRUE;
 
 $db['default'] = array(
 	'dsn'	=> '',
-	'hostname' => 'localhost',
-	'username' => 'bkm2019',
-	'password' => 'bkm2019',
+	'hostname' => '202.149.77.2',
+	'username' => 'postgres',
+	'password' => 'triklin321',
 	'database' => 'mybkm',
 	'dbdriver' => 'postgre',
 	'dbprefix' => '',
