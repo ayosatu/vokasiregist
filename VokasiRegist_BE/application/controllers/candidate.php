@@ -18,6 +18,7 @@ class candidate extends REST_Controller
 
             $id = $this->input->post('candidate_id');
             $action = $this->input->post('action');
+            $user_id = ($this->input->post('user_id') == NULL) ? NULL : $this->input->post('user_id') ;
             $user_id = $this->input->post('user_id');
             $name = $this->input->post('name');
             $email = $this->input->post('email');
@@ -34,33 +35,6 @@ class candidate extends REST_Controller
             $ins_unit_id_take = $this->input->post('ins_unit_id_take');
             $adm_user = $this->input->post('admin');
 
-            if ($action == 'D') {
-                $sql = " select * from f_crud_candidate
-                (
-                    '" . $action . "',
-                    $id,
-                    NULL,
-                    NULL,
-                    NULL,
-                    NULL,
-                    NULL,
-                    NULL,
-                    NULL,
-                    NULL,
-                    NULL,
-                    NULL,
-                    NULL,
-                    NULL,
-                    NULL,
-                    NULL,
-                    NULL
-                ); ";
-                $data = $this->db->query($sql)->row_array();
-                $this->response([
-                    'status' => $data['oint_res'],
-                    'message' => $data['ostr_msg']
-                ], REST_Controller::HTTP_OK);
-            } else {
                 $sql = " select * from f_crud_candidate
                 (
                     '" . $action . "',
@@ -86,7 +60,6 @@ class candidate extends REST_Controller
                     'status' => $data['oint_res'],
                     'message' => $data['ostr_msg']
                 ], REST_Controller::HTTP_OK);
-            }
                 
 }
 }
