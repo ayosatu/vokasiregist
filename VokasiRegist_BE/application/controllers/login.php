@@ -61,7 +61,7 @@ class login extends REST_Controller
 			$this->db->query($sql);
 			$this->response([
 				'status' => $data['oint_res'],
-				'message' => 'Succes Login!!'
+				'message' => 'Success Login!!'
 			], REST_Controller::HTTP_OK);
 		}
 	}
