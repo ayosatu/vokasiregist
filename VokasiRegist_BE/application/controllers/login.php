@@ -4,7 +4,7 @@ require APPPATH . '/libraries/REST_Controller.php';
 
 use Restserver\Libraries\REST_Controller;
 
-class Login extends REST_Controller
+class login extends REST_Controller
 {
 
 	function __construct($config = 'rest')
