@@ -55,18 +55,19 @@ class login extends REST_Controller
 			$u_otp = "select * From f_update_otp(" . $success['user_id'] . ", '" . $otp . "');";
 			$this->db->query($u_otp);
 			// Send MAIL
-			$this->sendMail($data, $success['user_email'], $otp);
+			$this->sendMail($data, $success, $otp);
 		} elseif ($action == "P2" && $data['oint_res'] == 1 && $otp_val == $success['otp_val']) {
 			$sql = "select * From f_update_lastlogin(" . $success['user_id'] . ");";
 			$this->db->query($sql);
 			$this->response([
 				'status' => $data['oint_res'],
-				'message' => 'Success Login!!'
+				'message' => 'Success Login!!',
+				'data' => $success
 			], REST_Controller::HTTP_OK);
 		}
 	}
 
-	function sendMail($data, $email, $otp)
+	function sendMail($data, $success, $otp)
 	{
 		// config email
 		$config = array(
@@ -84,9 +85,9 @@ class login extends REST_Controller
 		$this->email->initialize($config);
 		$this->email->set_newline("\r\n");
 		// from email (email sender, Sender Name)
-		$this->email->from('pendaftaranbkm@gmail.com', 'VET Budikarya Man'); // from email
+		$this->email->from('pendaftaranbkm@gmail.com', 'VET Budikarya Mandiri'); // from email
 		// send to 
-		$this->email->to($email);
+		$this->email->to($success['user_email']);
 		// subject email
 		$this->email->subject('OTP LOGIN');
 		// Message
@@ -96,7 +97,8 @@ class login extends REST_Controller
 		if ($this->email->send()) {
 			$this->response([
 				'status' => $data['oint_res'],
-				'message' => 'Email Has Been Send!!'
+				'message' => 'Email Has Been Send!!',
+				'data' => $success
 			], REST_Controller::HTTP_OK);
 		} else {
 			$this->response([
