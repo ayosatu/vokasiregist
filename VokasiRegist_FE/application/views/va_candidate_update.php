@@ -27,11 +27,11 @@
 							</div>
 							<div class="form-group mb-0">
 								<label for="">Gender</label>
-								<input type="text" class="form-control" value="<?= $candidate['gender_id'] ?>">
+								<input type="text" class="form-control" value="<?= $candidate['gender'] ?>">
 							</div>
 							<div class="form-group mb-0">
 								<label for="">Religion</label>
-								<input type="text" class="form-control" value="<?= $candidate['religion_id'] ?>">
+								<input type="text" class="form-control" value="<?= $candidate['religion'] ?>">
 							</div>
 							<div class="form-group">
 								<label for="">Identity Number</label>
@@ -52,10 +52,10 @@
 						</form>
 					</div>
 					<div class="card-footer text-right">
-						<a href="<?= base_url('admin/candidate') ?>" class="btn btn-icon icon-left btn-primary">
+						<a href="<?= base_url('a_candidate') ?>" class="btn btn-icon icon-left btn-primary">
 							<i class="ion ion-ios-arrow-back"></i>Back
 						</a>
-						<a href="<?= base_url('admin/candidate/update') ?>" class="btn btn-icon btn-success">
+						<a href="<?= base_url('a_candidate/update') ?>" class="btn btn-icon btn-success">
 							<i class="far fa-edit"></i> Update
 						</a>
 					</div>

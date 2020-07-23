@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
 
-class Home extends CI_Controller
+class A_Home extends CI_Controller
 {
 	public function __construct()
 	{
@@ -18,7 +18,7 @@ class Home extends CI_Controller
 		// print_r($data);
 		// die();
 		$this->load->view('templates/admin_temp_header');
-		$this->load->view('admin/v_home', $data);
+		$this->load->view('va_home', $data);
 		$this->load->view('templates/admin_temp_footer');
 	}
 }

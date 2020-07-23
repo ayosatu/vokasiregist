@@ -41,13 +41,13 @@
 											<a href="#" class="btn btn-icon btn-primary has-dropdown" data-toggle="dropdown"><i class="ion ion-ios-person"></i> <span>Manage Candidate</span></a>
 											<ul class="dropdown-menu" style="width: 30%; text-align:center">
 												<li>
-													<a href="<?= base_url('admin/candidate/detail?candidate_id=') . $can['candidate_id'] ?>" class="btn btn-icon btn-info">
+													<a href="<?= base_url('a_candidate/detail?candidate_id=') . $can['candidate_id'] ?>" class="btn btn-icon btn-info">
 														<i class="fas fa-info-circle"></i> Detail
 													</a>
-													<a href="<?= base_url('admin/candidate/update?candidate_id=') . $can['candidate_id'] ?>" class="btn btn-icon btn-success">
+													<a href="<?= base_url('a_candidate/update?candidate_id=') . $can['candidate_id'] ?>" class="btn btn-icon btn-success">
 														<i class="far fa-edit"></i> Update
 													</a>
-													<a href="#" class="btn btn-icon btn-danger" data-confirm="Realy?|User <?= $can['name'] ?> Will Deleted Are You Sure?" data-confirm-yes="window.location.href ='<?= base_url('admin/candidate/delete?candidate_id=' . $can['candidate_id']) ?>';">
+													<a href="#" class="btn btn-icon btn-danger" data-confirm="Realy?|Candidate <?= $can['name'] ?> Will Deleted Are You Sure?" data-confirm-yes="window.location.href ='<?= base_url('a_candidate/delete?candidate_id=' . $can['candidate_id']) ?>';">
 														<i class="fas fa-times"></i> Delete
 													</a>
 												</li>

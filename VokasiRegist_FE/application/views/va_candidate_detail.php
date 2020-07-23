@@ -30,11 +30,11 @@
 						</div>
 						<div class="form-group mb-0">
 							<label for="">Gender</label>
-							<input type="text" class="form-control" value="<?= $candidate['gender_id'] ?>" readonly>
+							<input type="text" class="form-control" value="<?= $candidate['gender'] ?>" readonly>
 						</div>
 						<div class="form-group mb-0">
 							<label for="">Religion</label>
-							<input type="text" class="form-control" value="<?= $candidate['religion_id'] ?>" readonly>
+							<input type="text" class="form-control" value="<?= $candidate['religion'] ?>" readonly>
 						</div>
 						<div class="form-group">
 							<label for="">Identity Number</label>
@@ -54,7 +54,7 @@
 						</div>
 					</div>
 					<div class="card-footer text-left">
-						<a href="<?= base_url('admin/candidate') ?>" class="btn btn-icon icon-left btn-lg btn-primary">
+						<a href="<?= base_url('a_candidate') ?>" class="btn btn-icon icon-left btn-lg btn-primary">
 							<i class="ion ion-ios-arrow-back"></i>Back
 						</a>
 					</div>

@@ -12,8 +12,8 @@
 	<!-- CSS Libraries -->
 	<link rel="stylesheet" href="<?= base_url('assets') ?>/modules/jqvmap/dist/jqvmap.min.css">
 	<link rel="stylesheet" href="<?= base_url('assets') ?>/modules/summernote/dist/summernote-bs4.css">
-	<!-- <link rel="stylesheet" href="<?= base_url('assets') ?>/modules/owl.carousel/dist/assets/owl.carousel.min.css"> -->
-	<link rel="stylesheet" href="<?= base_url('assets') ?>/modules/owl.carousel/dist/assets/owl.theme.default.min.css">
+	<!-- <link rel="stylesheet" href="<?= base_url('assets') ?>/modules/owlcarousel2/dist/assets/owl.carousel.min.css"> -->
+	<link rel="stylesheet" href="<?= base_url('assets') ?>/modules/owlcarousel2/dist/assets/owl.theme.default.min.css">
 
 
 	<!-- Icon -->
@@ -318,13 +318,13 @@
 
 					<ul class="sidebar-menu">
 						<li class="menu-header">Main Menu</li>
-						<li><a class="nav-link" href="<?= base_url('home') ?>"><i class="ion ion-ios-home"></i><span>Home</span></a></li>
+						<li><a class="nav-link" href="<?= base_url('a_home') ?>"><i class="ion ion-ios-home"></i><span>Home</span></a></li>
 
 						<li class="nav-item dropdown">
 							<a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="ion ion-ios-person"></i> <span>Manage Candidate</span></a>
 							<ul class="dropdown-menu">
 								<li>
-									<a class="nav-link" href="<?= base_url('admin/candidate') ?>">
+									<a class="nav-link" href="<?= base_url('a_candidate') ?>">
 										<i class="ion ion-ios-people"></i><span>Candidate</span>
 									</a>
 								</li>
