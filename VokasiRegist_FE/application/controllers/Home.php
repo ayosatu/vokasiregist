@@ -12,10 +12,13 @@ class Home extends CI_Controller
 	//FORM LOGIN ACCOUNT
 	public function index()
 	{
-		if ($this->session->userdata('success') != 1) {
-			redirect('auth');
-		}
-		$this->load->view('templates/temp_head');
+		// if ($this->session->userdata('success') == 1) {
+		// 	$this->load->view('v_home');
+		// } else {
+		// 	redirect('auth');
+		// }
+
+		$this->load->view('templates/temp_header');
 		$this->load->view('v_home');
 		$this->load->view('templates/temp_footer');
 	}
@@ -24,12 +27,5 @@ class Home extends CI_Controller
 	{
 		$this->session->set_userdata('auto_login', -1);
 		redirect('auth');
-	}
-
-	public function my_profile()
-	{
-		$this->load->view('templates/temp_head');
-		$this->load->view('v_profile');
-		$this->load->view('templates/temp_footer');
 	}
 }

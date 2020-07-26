@@ -6,13 +6,13 @@
 
 <section class="section">
 	<div class="section-header">
-		<h1>Candidate</h1>
+		<h1>Result</h1>
 	</div>
 	<div class="row">
 		<div class="col-md-12">
 			<div class="card card-primary">
 				<div class="card-header ">
-					<h4>Manage Candidate</h4>
+					<h4>Manage Result</h4>
 				</div>
 				<div class="card-body">
 					<div class="flashdatafail" data-flashdata="<?= $this->session->flashdata('msgfail'); ?>"></div>

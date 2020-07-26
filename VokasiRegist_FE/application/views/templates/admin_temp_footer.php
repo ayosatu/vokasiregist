@@ -30,6 +30,12 @@
 
 <!-- Page Specific JS File -->
 <!-- <script src="<?= base_url('assets') ?>/js/page/index.js"></script> -->
+
+<!-- Sweet Alert JS -->
+<script src="<?= base_url("assets") ?>/js/sweetalert2.all.min.js"></script>
+
+<!-- Costum Sweet alert JS -->
+<script src="<?= base_url("assets") ?>/js/myjsalert.js"></script>
 </body>
 
 </html>

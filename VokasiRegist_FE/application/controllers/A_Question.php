@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
 
-class A_Candidate extends CI_Controller
+class A_Question extends CI_Controller
 {
 	var $API = "http://localhost/VokasiRegist_BE/";
 	// var $API = "https://github.com/ayosatu/vokasiregist/tree/master/VokasiRegist_BE/application/controllers/";
@@ -26,7 +26,7 @@ class A_Candidate extends CI_Controller
 		$data['candidate'] = $API_data['data'];
 		// print_r($data);
 		// die();
-		$this->load->view('va_candidate', $data);
+		$this->load->view('va_question', $data);
 	}
 
 	private function getData()

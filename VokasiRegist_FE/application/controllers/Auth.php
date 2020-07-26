@@ -17,11 +17,12 @@ class Auth extends CI_Controller
 	//FORM LOGIN ACCOUNT
 	public function index()
 	{
-		if ($this->session->userdata('auto_login') == 1) {
-			redirect('home');
-		} else {
-			$this->load->view('templates/v_login_phase_1');
-		}
+		// if ($this->session->userdata('auto_login') == 1) {
+		// 	redirect('home');
+		// } else {
+		// 	$this->load->view('templates/v_login_phase_1');
+		// }
+		redirect('home');
 	}
 
 	public function login_phase1()
@@ -69,21 +70,12 @@ class Auth extends CI_Controller
 			];
 			$data = json_decode($this->curl->simple_post($this->API . 'login', $datapost), true);
 			if ($data['status'] == 1) {
+				$this->session->set_userdata('success', 1);
 				if ($this->input->post('auto_login') == true) {
 					$this->session->set_userdata('auto_login', 1);
-				}
-				$this->session->set_userdata('user_name', $data['data']['user_name']);
-				$this->session->set_userdata('success', 1);
-
-				if ($data['data']['user_type_id'] == 1) {
 					redirect('home');
-				} else if ($data['data']['user_type_id'] == 3) {
-					redirect('a_home');
-				} else {
-					$this->session->set_userdata('user_name', null);
-					$this->session->set_userdata('success', null);
-					redirect('auth');
 				}
+				redirect('home');
 			} else {
 				$this->load->view('templates/v_login_phase_2');
 			}

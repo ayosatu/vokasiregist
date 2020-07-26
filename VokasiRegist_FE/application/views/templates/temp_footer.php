@@ -1,3 +1,4 @@
+</div>
 <footer class="main-footer">
 	<div class="footer-left">
 		Copyright &copy; 2018 <div class="bullet"></div> Design By <a href="https://nauval.in/">Muhamad Nauval Azhar</a>
@@ -10,7 +11,7 @@
 </div>
 
 <!-- General JS Scripts -->
-<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.nicescroll/3.7.6/jquery.nicescroll.min.js"></script>
@@ -18,18 +19,57 @@
 <script src="<?= base_url('assets') ?>/js/stisla.js"></script>
 
 <!-- JS Libraies -->
-<script src="<?= base_url('assets') ?>/node_modules/jquery-sparkline/jquery.sparkline.min.js"></script>
-<script src="<?= base_url('assets') ?>/node_modules/chart.js/dist/Chart.min.js"></script>
-<script src="<?= base_url('assets') ?>/node_modules/owl.carousel/dist/owl.carousel.min.js"></script>
-<script src="<?= base_url('assets') ?>/node_modules/summernote/dist/summernote-bs4.js"></script>
-<script src="<?= base_url('assets') ?>/node_modules/chocolat/dist/js/jquery.chocolat.min.js"></script>
+<script src="<?= base_url('assets') ?>/modules/jquery.sparkline.min.js"></script>
+<script src="<?= base_url('assets') ?>/modules/Chart.min.js"></script>
+<script src="<?= base_url('assets') ?>/modules/owlcarousel2/dist/owl.carousel.min.js"></script>
+<script src="<?= base_url('assets') ?>/modules/summernote/dist/summernote-bs4.js"></script>
+<script src="<?= base_url('assets') ?>/modules/chocolat/dist/js/jquery.chocolat.min.js"></script>
 
 <!-- Template JS File -->
 <script src="<?= base_url('assets') ?>/js/scripts.js"></script>
 <script src="<?= base_url('assets') ?>/js/custom.js"></script>
 
 <!-- Page Specific JS File -->
-<script src="<?= base_url('assets') ?>/js/page/index.js"></script>
+<!-- <script src="<?= base_url('assets') ?>/js/page/index.js"></script> -->
+
+<!-- Sweet Alert JS -->
+<script src="<?= base_url("assets") ?>/js/sweetalert2.all.min.js"></script>
+
+<!-- Costum Sweet alert JS -->
+<script src="<?= base_url("assets") ?>/js/myjsalert.js"></script>
+
+<script>
+	$(document).ready(function() {
+		// $('ul.tabs li').click(function() {
+		// 	var name = $(this).attr('id');
+
+		// 	$('ul.tabs li').removeClass('active');
+
+		// 	if (name == "a_candidate") {
+		// 		$('.page-load').load('<?= base_url('a_candidate'); ?>');
+		// 	}
+
+		// 	$(this).addClass('active');
+		// });
+
+		$('.clicked-tab').click(function() {
+			var name = $(this).attr('id');
+			$('.clicked-tab').removeClass('active');
+			if (name == "a_candidate") {
+				$('.page-load').load('<?= base_url('a_candidate'); ?>');
+			} else if (name == "a_parent") {
+				$('.page-load').load('<?= base_url('a_parent'); ?>');
+			} else if (name == "a_document") {
+				$('.page-load').load('<?= base_url('a_document'); ?>');
+			} else if (name == "a_question") {
+				$('.page-load').load('<?= base_url('a_question'); ?>');
+			} else if (name == "a_result") {
+				$('.page-load').load('<?= base_url('a_result'); ?>');
+			}
+			$(this).addClass('active');
+		});
+	});
+</script>
 </body>
 
 </html>

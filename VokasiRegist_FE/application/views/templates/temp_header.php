@@ -10,10 +10,10 @@
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
 	<!-- CSS Libraries -->
-	<link rel="stylesheet" href="<?= base_url('assets') ?>/node_modules/jqvmap/dist/jqvmap.min.css">
-	<link rel="stylesheet" href="<?= base_url('assets') ?>/node_modules/summernote/dist/summernote-bs4.css">
-	<link rel="stylesheet" href="<?= base_url('assets') ?>/node_modules/owl.carousel/dist/assets/owl.carousel.min.css">
-	<link rel="stylesheet" href="<?= base_url('assets') ?>/node_modules/owl.carousel/dist/assets/owl.theme.default.min.css">
+	<link rel="stylesheet" href="<?= base_url('assets') ?>/modules/jqvmap/dist/jqvmap.min.css">
+	<link rel="stylesheet" href="<?= base_url('assets') ?>/modules/summernote/dist/summernote-bs4.css">
+	<!-- <link rel="stylesheet" href="<?= base_url('assets') ?>/modules/owlcarousel2/dist/assets/owl.carousel.min.css"> -->
+	<link rel="stylesheet" href="<?= base_url('assets') ?>/modules/owlcarousel2/dist/assets/owl.theme.default.min.css">
 
 
 	<!-- Icon -->
@@ -21,6 +21,8 @@
 	<!-- Template CSS -->
 	<link rel="stylesheet" href="<?= base_url('assets') ?>/css/style.css">
 	<link rel="stylesheet" href="<?= base_url('assets') ?>/css/components.css">
+	<link rel="stylesheet" href="https://cdn.datatables.net/1.10.21/css/dataTables.bootstrap4.min.css">
+
 	<style>
 		.sidebar-footer {
 			position: absolute;
@@ -66,6 +68,9 @@
 		}
 	</style>
 
+	<script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+	<script src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js"></script>
+	<script src="https://cdn.datatables.net/1.10.21/js/dataTables.bootstrap4.min.js"></script>
 </head>
 
 <body>
@@ -313,24 +318,35 @@
 
 					<ul class="sidebar-menu">
 						<li class="menu-header">Main Menu</li>
-						<li><a class="nav-link" href="<?= base_url('home') ?>"><i class="ion ion-ios-home"></i><span>Home</span></a></li>
+						<li class="active"><a class="nav-link" href="<?= base_url('home') ?>"><i class="ion ion-ios-home"></i><span>Home</span></a></li>
 
-						<li class="nav-item dropdown">
-							<a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="ion ion-cube"></i> <span>Manage</span></a>
-							<ul class="dropdown-menu">
-								<li>
-									<a class="nav-link" href="<?= base_url('home/') ?>my_profile">
-										<i class="ion ion-android-person"></i><span>My Profile</span>
+						<li class="nav-item dropdown ">
+							<a href="#" class="nav-link has-dropdown " data-toggle="dropdown"><i class="ion ion-cube"></i> <span>Admin</span></a>
+							<ul class="dropdown-menu tabs">
+
+								<li class="clicked-tab" id="a_candidate">
+									<a class="nav-link" href="#">
+										<i class="ion ion-ios-people"></i><span>Candidate</span>
 									</a>
 								</li>
-								<li>
-									<a class="nav-link" href="<?= base_url('home/') ?>my_profile">
-										<i class="ion ion-android-people"></i><span>My Parent</span>
+								<li class="clicked-tab" id="a_parent">
+									<a class="nav-link clicked-tab" href="#">
+										<i class="ion ion-android-people"></i><span>Can Parent</span>
 									</a>
 								</li>
-								<li>
-									<a class="nav-link" href="<?= base_url('home/') ?>my_profile">
-										<i class="ion ion-android-attach"></i><span>My Document</span>
+								<li class="clicked-tab" id="a_document">
+									<a class="nav-link clicked-tab" href="#">
+										<i class="ion ion-android-attach"></i><span>Can Document</span>
+									</a>
+								</li>
+								<li class="clicked-tab" id="a_question">
+									<a class="nav-link clicked-tab" href="#">
+										<i class="ion ion-android-create"></i><span>Manage Question</span>
+									</a>
+								</li>
+								<li class="clicked-tab" id="a_result">
+									<a class="nav-link clicked-tab" href="#">
+										<i class="ion ion-android-clipboard"></i><span>Manage Result</span>
 									</a>
 								</li>
 							</ul>
@@ -338,20 +354,35 @@
 
 
 						<li class="nav-item dropdown">
-							<a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="ion ion-ios-paper"></i> <span>BKM Test</span></a>
+							<a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="ion ion-ios-paper"></i> <span>Candidate</span></a>
 							<ul class="dropdown-menu">
 								<li>
-									<a class="nav-link" href="">
+									<a class="nav-link clicked-tab" id="c_profile" href="<?= base_url('home/') ?>my_profile">
+										<i class="ion ion-android-person"></i><span>My Profile</span>
+									</a>
+								</li>
+								<li>
+									<a class="nav-link clicked-tab" id="c_parent" href="<?= base_url('home/') ?>my_profile">
+										<i class="ion ion-android-people"></i><span>My Parent</span>
+									</a>
+								</li>
+								<li>
+									<a class="nav-link clicked-tab" id="c_document" href="<?= base_url('home/') ?>my_profile">
+										<i class="ion ion-android-attach"></i><span>My Document</span>
+									</a>
+								</li>
+								<li>
+									<a class="nav-link clicked-tab" id="c_test" href="">
 										<i class="ion ion-android-create"></i><span>Test</span>
 									</a>
 								</li>
 								<li>
-									<a class="nav-link" href="">
+									<a class="nav-link clicked-tab" id="c_result" href="">
 										<i class="ion ion-android-clipboard"></i><span>Result Test</span>
 									</a>
 								</li>
 								<li>
-									<a class="nav-link" href="">
+									<a class="nav-link clicked-tab" id="c_interview" href="">
 										<i class="ion ion-ios-eye"></i><span>Interview</span>
 									</a>
 								</li>
@@ -365,3 +396,6 @@
 					</div>
 				</aside>
 			</div>
+
+
+			<div class="main-content page-load" style="min-height: 557px;">

@@ -24,15 +24,15 @@
 							<label for="">Fullname</label>
 							<input type="text" class="form-control" value="<?= $candidate['name'] ?>" readonly>
 						</div>
-						<div class="form-group mb-0">
+						<div class="form-group">
 							<label for="">Birth Place/Date</label>
 							<input type="text" class="form-control" value="<?= $candidate['birth_place'] . ", " . $candidate['birth_date'] ?>" readonly>
 						</div>
-						<div class="form-group mb-0">
+						<div class="form-group">
 							<label for="">Gender</label>
 							<input type="text" class="form-control" value="<?= $candidate['gender'] ?>" readonly>
 						</div>
-						<div class="form-group mb-0">
+						<div class="form-group">
 							<label for="">Religion</label>
 							<input type="text" class="form-control" value="<?= $candidate['religion'] ?>" readonly>
 						</div>
