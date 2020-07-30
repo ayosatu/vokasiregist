@@ -40,33 +40,43 @@
 
 <script>
 	$(document).ready(function() {
-		// $('ul.tabs li').click(function() {
-		// 	var name = $(this).attr('id');
-
-		// 	$('ul.tabs li').removeClass('active');
-
-		// 	if (name == "a_candidate") {
-		// 		$('.page-load').load('<?= base_url('a_candidate'); ?>');
-		// 	}
-
-		// 	$(this).addClass('active');
-		// });
+		function ajaxLoadContent(controller, params) {
+			$.ajax({
+				url: "<?= base_url(); ?>" + controller,
+				type: "POST",
+				data: params,
+				success: function(data) {
+					$(".page-load").html(data);
+				},
+				error: function(xhr, status, error) {
+					swal.fire({
+						title: "Error",
+						text: xhr.responseText,
+						html: 404,
+						type: "error"
+					});
+				}
+			});
+			return;
+		}
 
 		$('.clicked-tab').click(function() {
-			var name = $(this).attr('id');
-			$('.clicked-tab').removeClass('active');
-			if (name == "a_candidate") {
-				$('.page-load').load('<?= base_url('a_candidate'); ?>');
-			} else if (name == "a_parent") {
-				$('.page-load').load('<?= base_url('a_parent'); ?>');
-			} else if (name == "a_document") {
-				$('.page-load').load('<?= base_url('a_document'); ?>');
-			} else if (name == "a_question") {
-				$('.page-load').load('<?= base_url('a_question'); ?>');
-			} else if (name == "a_result") {
-				$('.page-load').load('<?= base_url('a_result'); ?>');
+			var controllerName = $(this).attr('data-source');
+
+			if (!controllerName) {
+
+			} else {
+				var menu_id = $(this).attr('menu-id');
+				$('.clicked-tab').removeClass('active');
+				$(this).addClass('active');
+				$(this).parent('ul').parent('li').addClass('active');
+
+				ajaxLoadContent(
+					controllerName, {
+						menu_id: menu_id
+					}
+				);
 			}
-			$(this).addClass('active');
 		});
 	});
 </script>

@@ -17,6 +17,7 @@ class A_Candidate extends CI_Controller
 	//FORM LOGIN ACCOUNT
 	public function index()
 	{
+		$this->getData();
 		$datapost = [
 			'action' => 'QR'
 		];
@@ -31,7 +32,7 @@ class A_Candidate extends CI_Controller
 
 	private function getData()
 	{
-		$candidate_id = $this->input->get('candidate_id');
+		$candidate_id = $this->input->get('id');
 		$datapost = [
 			'action' => 'QR',
 			'qr_candidate_id' => $candidate_id
@@ -49,14 +50,16 @@ class A_Candidate extends CI_Controller
 	public function detail()
 	{
 		$data = $this->getData();
-		$this->load->view('templates/admin_temp_header');
 		$this->load->view('va_candidate_detail', $data);
-		$this->load->view('templates/admin_temp_footer');
 	}
 
+	public function loadUpdateDisplay()
+	{
+		$data = $this->getData();
+		$this->load->view('va_candidate_update', $data);
+	}
 	public function update()
 	{
-		$this->getData();
 		$datapost = [
 			'action' => 'U'
 			// 'qr_candidate_id' => $candidate_id
@@ -76,7 +79,6 @@ class A_Candidate extends CI_Controller
 				'Error : ' . $respond['status']
 			);
 		}
-		redirect('a_candidate');
 	}
 
 	public function delete()
@@ -100,6 +102,5 @@ class A_Candidate extends CI_Controller
 				'Error : ' . $respond['status']
 			);
 		}
-		redirect('a_candidate');
 	}
 }

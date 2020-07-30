@@ -7,6 +7,7 @@
 <section class="section">
 	<div class="section-header">
 		<h1>Candidate</h1>
+		<!-- Modal -->
 	</div>
 	<div class="row">
 		<div class="col-md-12">
@@ -42,17 +43,21 @@
 									<td style=" text-align: center;">
 										<a href="#" class="btn btn-icon btn-primary has-dropdown" data-toggle="dropdown"><i class="ion ion-ios-person"></i> <span>Manage Candidate</span></a>
 										<ul class="dropdown-menu" style="width: 30%; text-align:center">
+
 											<li>
-												<a href="<?= base_url('a_candidate/detail?candidate_id=' . $can['candidate_id']); ?>" class="btn btn-icon btn-info">
+												<button menu-id="<?= $can['candidate_id'] ?>" data-toggle="modal" data-target="#myModal" data-source="a_candidate" class="btn btn-icon btn-info btn-detail" id="<?= $can['candidate_id'] ?>">
 													<i class="fas fa-info-circle"></i> Detail
-												</a>
-												<a href="<?= base_url('a_candidate/update?candidate_id=' . $can['candidate_id']); ?>" class="btn btn-icon btn-success">
+												</button>
+
+												<button menu-id="<?= $can['candidate_id'] ?>" data-toggle="modal" data-target="#myModal" data-source="a_candidate" class="btn btn-icon btn-success btn-update" id="<?= $can['candidate_id'] ?>">
 													<i class="far fa-edit"></i> Update
-												</a>
+												</button>
+
 												<a href="<?= base_url('a_candidate/delete?candidate_id=' . $can['candidate_id']); ?>" class="btn btn-icon btn-danger deleteButton">
 													<i class="fas fa-times"></i> Delete
 												</a>
 											</li>
+
 										</ul>
 									</td>
 								</tr>
@@ -65,3 +70,72 @@
 		</div>
 	</div>
 </section>
+
+<div class="modal fade" id="myModal" role="dialog">
+	<div class="modal-dialog modal-lg">
+		<!-- Modal content-->
+		<div class="modal-content">
+			<div class="modal-body modal-output">
+			</div>
+		</div>
+
+	</div>
+</div>
+
+<script>
+	$(document).ready(function() {
+		function ajaxLoadDataContent(controller, action, params) {
+			$.ajax({
+				url: "<?= base_url(); ?>" + controller + action,
+				type: "GET",
+				data: params,
+				success: function(data) {
+					$(".modal-output").html(data);
+				},
+				error: function(xhr, status, error) {
+					swal.fire({
+						title: "Error",
+						text: xhr.responseText,
+						html: 404,
+						type: "error"
+					});
+				}
+			});
+			return;
+		}
+
+		$('.btn-detail').click(function() {
+			var controllerName = $(this).attr('data-source');
+			var action = "/detail?id=" + $(this).attr('id');
+
+			if (!controllerName) {
+
+			} else {
+				var menu_id = $(this).attr('menu-id');
+				ajaxLoadDataContent(
+					controllerName,
+					action, {
+						menu_id: menu_id
+					}
+				);
+			}
+		});
+
+		$('.btn-update').click(function() {
+			var controllerName = $(this).attr('data-source');
+			var action = "/loadUpdateDisplay?id=" + $(this).attr('id');
+
+			if (!controllerName) {
+
+			} else {
+				var menu_id = $(this).attr('menu-id');
+				ajaxLoadDataContent(
+					controllerName,
+					action, {
+						menu_id: menu_id
+					}
+				);
+			}
+		});
+	});
+</script>

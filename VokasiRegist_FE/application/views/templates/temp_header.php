@@ -318,34 +318,39 @@
 
 					<ul class="sidebar-menu">
 						<li class="menu-header">Main Menu</li>
-						<li class="active"><a class="nav-link" href="<?= base_url('home') ?>"><i class="ion ion-ios-home"></i><span>Home</span></a></li>
+						<li class="active">
+							<a class="nav-link" href="<?= base_url('home') ?>">
+								<i class="ion ion-ios-home"></i>
+								<span>Home</span>
+							</a>
+						</li>
 
-						<li class="nav-item dropdown ">
+						<li class="nav-item dropdown">
 							<a href="#" class="nav-link has-dropdown " data-toggle="dropdown"><i class="ion ion-cube"></i> <span>Admin</span></a>
 							<ul class="dropdown-menu tabs">
 
-								<li class="clicked-tab" id="a_candidate">
-									<a class="nav-link" href="#">
+								<li class="clicked-tab" data-source="a_candidate" id="a_candidate" menu_id="1">
+									<a href="#">
 										<i class="ion ion-ios-people"></i><span>Candidate</span>
 									</a>
 								</li>
-								<li class="clicked-tab" id="a_parent">
-									<a class="nav-link clicked-tab" href="#">
+								<li class="clicked-tab" data-source="a_canparent" id="a_canparent" menu_id="2">
+									<a href="#">
 										<i class="ion ion-android-people"></i><span>Can Parent</span>
 									</a>
 								</li>
-								<li class="clicked-tab" id="a_document">
-									<a class="nav-link clicked-tab" href="#">
+								<li class="clicked-tab" data-source="a_candocument" id="a_candocument" menu_id="3">
+									<a href="#">
 										<i class="ion ion-android-attach"></i><span>Can Document</span>
 									</a>
 								</li>
-								<li class="clicked-tab" id="a_question">
-									<a class="nav-link clicked-tab" href="#">
+								<li class="clicked-tab" data-source="a_question" id="a_question" menu_id="4">
+									<a href="#">
 										<i class="ion ion-android-create"></i><span>Manage Question</span>
 									</a>
 								</li>
-								<li class="clicked-tab" id="a_result">
-									<a class="nav-link clicked-tab" href="#">
+								<li class="clicked-tab" data-source="a_result" id="a_result" menu_id="5">
+									<a href="#">
 										<i class="ion ion-android-clipboard"></i><span>Manage Result</span>
 									</a>
 								</li>
