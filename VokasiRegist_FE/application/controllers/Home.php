@@ -12,11 +12,11 @@ class Home extends CI_Controller
 	//FORM LOGIN ACCOUNT
 	public function index()
 	{
-		// if ($this->session->userdata('success') == 1) {
-		// 	$this->load->view('v_home');
-		// } else {
-		// 	redirect('auth');
-		// }
+		if ($this->session->userdata('success') == 1) {
+			$this->load->view('v_home');
+		} else {
+			redirect('auth');
+		}
 
 		$this->load->view('templates/temp_header');
 		$this->load->view('v_home');
