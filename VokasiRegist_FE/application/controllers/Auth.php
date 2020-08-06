@@ -17,12 +17,12 @@ class Auth extends CI_Controller
 	//FORM LOGIN ACCOUNT
 	public function index()
 	{
-		// if ($this->session->userdata('auto_login') == 1) {
-		// 	redirect('home');
-		// } else {
-		// 	$this->load->view('templates/v_login_phase_1');
-		// }
-		redirect('home');
+		if ($this->session->userdata('auto_login') == 1) {
+			redirect('home');
+		} else {
+			$this->load->view('templates/v_login_phase_1');
+		}
+		// redirect('home');
 	}
 
 	public function login_phase1()
