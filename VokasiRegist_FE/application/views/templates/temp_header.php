@@ -328,6 +328,7 @@
 						<li class="nav-item dropdown">
 							<a href="#" class="nav-link has-dropdown " data-toggle="dropdown"><i class="ion ion-cube"></i> <span>Admin</span></a>
 							<ul class="dropdown-menu tabs">
+
 								<li class="clicked-tab" data-source="a_candidate" id="a_candidate" menu_id="1">
 									<a href="#">
 										<i class="ion ion-ios-people"></i><span>Candidate</span>
