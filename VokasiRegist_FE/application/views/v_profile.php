@@ -1,34 +1,110 @@
 <!-- Main Content -->
-<div class="main-content">
-	<section class="section">
-		<div class="row">
-			<div class="col-lg-12 col-md-12 col-sm-12">
-				<div class="card">
+<script>
+	$(document).ready(function() {
+		$('#example').DataTable();
+	});
+</script>
+
+<section class="section">
+	<div class="section-header">
+		<h1>Profile</h1>
+		<!-- Modal -->
+	</div>
+	<div class="row">
+		<div class="col-md-12">
+			<div class="card card-primary">
+				<div class="card-header">
+					<h4>My Profile</h4>
+				</div>
+				<div>
+					<h5>Name</h5>
+					<?= $profile['name']; ?>
 					<div class="card-header card-profile">
-						<img src="<?= base_url('assets/img/avatar/') ?>avatar-1.png" alt="Avatar">
+						<img src="<?= base_url() . $profile['img_path']; ?>" alt="">
 					</div>
-					<div class="card-body myprofile-detail">
-						<!-- <span class="myprofile-title">Full Name</span><br>
-						<span class="myprofile-desc"> ipsum dolor sit amet.</span><br>
-						<span class="my-profile-title">Email</span><br>
-						<span class="myprofile-desc">ipsum@gmail.com</span><br>
-						<span class="my-profile-title">Birth Place</span><br>
-						<span class="myprofile-desc">, ipsum.</span><br>
-						<span class="my-profile-title">Birth Date</span><br>
-						<span class="myprofile-desc">00/00/0000</span><br>
-						<span class="my-profile-title">NIK</span><br>
-						<span class="myprofile-desc">0123456789101112</span><br>
-						<span class="my-profile-title">Telephone Number</span><br>
-						<span class="myprofile-desc">0812-3456-7890</span><br>
-						<span class="my-profile-title">Hand Phone Number</span><br>
-						<span class="myprofile-desc">0812-3456-7890</span><br>
-						<span class="my-profile-title">Gender</span><br>
-						<span class="myprofile-desc">N/A</span><br>
-						<span class="my-profile-title">Religion</span><br>
-						<span class="myprofile-desc">N/A</span><br> -->
+				</div>
+				<div class="card-body">
+					<div class="flashdatafail" data-flashdata="<?= $this->session->flashdata('msgfail'); ?>"></div>
+					<div class="flashdata" data-flashdata="<?= $this->session->flashdata('msg'); ?>"></div>
+					<div class="owl-carousel owl-theme" id="products-carousel">
+
 					</div>
 				</div>
 			</div>
 		</div>
-	</section>
+	</div>
+</section>
+
+<div class="modal fade" id="myModal" role="dialog">
+	<div class="modal-dialog modal-lg">
+		<!-- Modal content-->
+		<div class="modal-content">
+			<div class="modal-body modal-output">
+			</div>
+		</div>
+
+	</div>
 </div>
+
+<script>
+	$(document).ready(function() {
+
+		function ajaxLoadDataContent(controller, action, params) {
+			$.ajax({
+				url: "<?= base_url(); ?>" + controller + action,
+				type: "GET",
+				data: params,
+				success: function(data) {
+					$(".modal-output").html(data);
+				},
+				error: function(xhr, status, error) {
+					swal.fire({
+						title: "Error",
+						text: xhr.responseText,
+						html: 404,
+						type: "error"
+					});
+				}
+			});
+
+			return;
+		}
+
+		$('.btn-detail').click(function() {
+			var controllerName = $(this).attr('data-source');
+			var action = "/detail?id=" + $(this).attr('id');
+
+			// alert($(this).attr('id'));
+			// document.getElementById("");
+
+			if (!controllerName) {
+
+			} else {
+				var menu_id = $(this).attr('menu-id');
+				ajaxLoadDataContent(
+					controllerName,
+					action, {
+						menu_id: menu_id
+					}
+				);
+			}
+		});
+
+		$('.btn-update').click(function() {
+			var controllerName = $(this).attr('data-source');
+			var action = "/loadUpdateDisplay?id=" + $(this).attr('id');
+
+			if (!controllerName) {
+
+			} else {
+				var menu_id = $(this).attr('menu-id');
+				ajaxLoadDataContent(
+					controllerName,
+					action, {
+						menu_id: menu_id
+					}
+				);
+			}
+		});
+	});
+</script>

@@ -328,7 +328,6 @@
 						<li class="nav-item dropdown">
 							<a href="#" class="nav-link has-dropdown " data-toggle="dropdown"><i class="ion ion-cube"></i> <span>Admin</span></a>
 							<ul class="dropdown-menu tabs">
-
 								<li class="clicked-tab" data-source="a_candidate" id="a_candidate" menu_id="1">
 									<a href="#">
 										<i class="ion ion-ios-people"></i><span>Candidate</span>
@@ -361,33 +360,33 @@
 						<li class="nav-item dropdown">
 							<a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="ion ion-ios-paper"></i> <span>Candidate</span></a>
 							<ul class="dropdown-menu">
-								<li>
-									<a class="nav-link clicked-tab" id="c_profile" href="<?= base_url('home/') ?>my_profile">
-										<i class="ion ion-android-person"></i><span>My Profile</span>
+								<li class="clicked-tab" data-source="c_profile" id="c_profile" menu_id="6">
+									<a href="#">
+										<i class="ion ion-ios-people"></i><span>My Profile</span>
 									</a>
 								</li>
-								<li>
-									<a class="nav-link clicked-tab" id="c_parent" href="<?= base_url('home/') ?>my_profile">
+								<li class="clicked-tab" data-source="home/my_profile" id="c_parent" menu_id="7">
+									<a href="#">
 										<i class="ion ion-android-people"></i><span>My Parent</span>
 									</a>
 								</li>
-								<li>
-									<a class="nav-link clicked-tab" id="c_document" href="<?= base_url('home/') ?>my_profile">
+								<li class="clicked-tab" data-source="home/my_profile" id="c_document" menu_id="8">
+									<a href="#">
 										<i class="ion ion-android-attach"></i><span>My Document</span>
 									</a>
 								</li>
-								<li>
-									<a class="nav-link clicked-tab" id="c_test" href="">
+								<li class="clicked-tab" data-source="c_test" id="c_test" menu_id="9">
+									<a href="#">
 										<i class="ion ion-android-create"></i><span>Test</span>
 									</a>
 								</li>
-								<li>
-									<a class="nav-link clicked-tab" id="c_result" href="">
+								<li class="clicked-tab" data-source="home/my_profile" id="c_result_test" menu_id="10">
+									<a href="#">
 										<i class="ion ion-android-clipboard"></i><span>Result Test</span>
 									</a>
 								</li>
-								<li>
-									<a class="nav-link clicked-tab" id="c_interview" href="">
+								<li class="clicked-tab" data-source="home/my_profile" id="c_interview" menu_id="11">
+									<a href="#">
 										<i class="ion ion-ios-eye"></i><span>Interview</span>
 									</a>
 								</li>
