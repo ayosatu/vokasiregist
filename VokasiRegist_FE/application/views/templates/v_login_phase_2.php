@@ -29,10 +29,10 @@
 						</div>
 						<h4 class="text-dark font-weight-normal">Welcome to <span class="font-weight-bold">MyBKM</span></h4>
 						<p class="text-muted">Before you get started, you must enter <span class="font-weight-bold">Password</span> and <span class="font-weight-bold">OTP Code</span> from your email</p>
-						<form method="POST" action="login_phase2" class="needs-validation" novalidate="">
+						<form method="POST" accept="login_phase2" class="needs-validation" novalidate="">
 							<div class="form-group">
 								<label for="user_name">Username</label>
-								<input id="user_name" type="text" class="form-control" name="user_name" tabindex="1" value="<?= $this->session->userdata('user_name') ?>" required autofocus readonly>
+								<input id="user_name" type="text" class="form-control" name="user_name" tabindex="1" value="<?= get_cookie('user_name') ?>" required autofocus readonly>
 								<div class="invalid-feedback">
 									Please fill in your Username
 								</div>
@@ -56,7 +56,7 @@
 
 							<div class="form-group">
 								<div class="custom-control custom-checkbox">
-									<input type="checkbox" name="auto_login" class="custom-control-input" tabindex="3" id="remember-me">
+									<input type="checkbox" name="remember_me" class="custom-control-input" tabindex="3" id="remember-me">
 									<label class="custom-control-label" for="remember-me">Auto Login</label>
 								</div>
 							</div>
@@ -85,8 +85,7 @@
 					<div class="absolute-bottom-left index-2">
 						<div class="text-light p-5 pb-2">
 							<div class="mb-5 pb-3">
-								<h1 class="mb-2 display-4 font-weight-bold">Good Morning</h1>
-								<h5 class="font-weight-normal text-muted-transparent">Bali, Indonesia</h5>
+								<h1 class="mb-2 display-4 font-weight-bold">Confirm Your Data Account</h1>
 							</div>
 							Photo by <a class="text-light bb" target="_blank" href="https://unsplash.com/photos/a8lTjWJJgLA">Justin Kauffman</a> on <a class="text-light bb" target="_blank" href="https://unsplash.com">Unsplash</a>
 						</div>

@@ -7,25 +7,25 @@ class Home extends CI_Controller
 	{
 		//Call Parent Construct
 		parent::__construct();
+		$this->load->helper('cookie');
 	}
 
 	//FORM LOGIN ACCOUNT
 	public function index()
 	{
-		if ($this->session->userdata('success') == 1) {
+		if (get_cookie('success') == 1 || $this->session->userdata('remember_me') == 1) {
+			$this->load->view('templates/temp_header');
 			$this->load->view('v_home');
+			$this->load->view('templates/temp_footer');
 		} else {
 			redirect('auth');
 		}
-
-		$this->load->view('templates/temp_header');
-		$this->load->view('v_home');
-		$this->load->view('templates/temp_footer');
 	}
 
 	public function logout()
 	{
-		$this->session->set_userdata('auto_login', -1);
+		delete_cookie('success');
+		$this->session->set_userdata('remember_me', -1);
 		redirect('auth');
 	}
 }

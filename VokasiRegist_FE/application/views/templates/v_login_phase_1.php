@@ -20,7 +20,7 @@
 
 <body>
 	<div id="app">
-		<section class="section">
+		<section class="section ">
 			<div class="d-flex flex-wrap align-items-stretch">
 				<div class="col-lg-4 col-md-6 col-12 order-lg-1 min-vh-100 order-2 bg-white">
 					<div class="p-4 m-3">
@@ -45,7 +45,7 @@
 							</div>
 
 							<div class="mt-5 text-center">
-								Don't have an account? <a href="<?= base_url('register') ?>">Create new one</a>
+								Don't have an account? <a href="auth-register.html">Create new one</a>
 							</div>
 						</form>
 
@@ -63,8 +63,7 @@
 					<div class="absolute-bottom-left index-2">
 						<div class="text-light p-5 pb-2">
 							<div class="mb-5 pb-3">
-								<h1 class="mb-2 display-4 font-weight-bold">Good Morning</h1>
-								<h5 class="font-weight-normal text-muted-transparent">Bali, Indonesia</h5>
+								<h1 class="mb-2 display-4 font-weight-bold">Welcome</h1>
 							</div>
 							Photo by <a class="text-light bb" target="_blank" href="https://unsplash.com/photos/a8lTjWJJgLA">Justin Kauffman</a> on <a class="text-light bb" target="_blank" href="https://unsplash.com">Unsplash</a>
 						</div>

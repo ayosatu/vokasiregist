@@ -22,7 +22,7 @@
 							<thead>
 								<tr>
 									<th>ID</th>
-									<th>Username</th>
+									<th>ID - Username</th>
 									<th>Full Name</th>
 									<th>Email</th>
 									<th>User Identity Number</th>
@@ -34,7 +34,7 @@
 								<? foreach ($candidate as $can):?>
 								<tr>
 									<td><?= $can['candidate_id'] ?></td>
-									<td><?= $can['user_id'] ?></td>
+									<td><?= $can['user_name'] ?></td>
 									<td><?= $can['name'] ?></td>
 									<td><?= $can['email'] ?></td>
 									<td><?= $can['nik'] ?></td>
@@ -42,17 +42,21 @@
 									<td style=" text-align: center;">
 										<a href="#" class="btn btn-icon btn-primary has-dropdown" data-toggle="dropdown"><i class="ion ion-ios-person"></i> <span>Manage Candidate</span></a>
 										<ul class="dropdown-menu" style="width: 30%; text-align:center">
+
 											<li>
-												<a href="<?= base_url('a_candidate/detail?candidate_id=' . $can['candidate_id']); ?>" class="btn btn-icon btn-info">
+												<button menu-id="<?= $can['candidate_id'] ?>" data-toggle="modal" data-target="#myModal" data-source="a_candidate" class="btn btn-icon btn-info btn-detail" id="<?= $can['candidate_id'] ?>">
 													<i class="fas fa-info-circle"></i> Detail
-												</a>
-												<a href="<?= base_url('a_candidate/update?candidate_id=' . $can['candidate_id']); ?>" class="btn btn-icon btn-success">
+												</button>
+
+												<button menu-id="<?= $can['candidate_id'] ?>" data-toggle="modal" data-target="#myModal" data-source="a_candidate" class="btn btn-icon btn-success btn-update" id="<?= $can['candidate_id'] ?>">
 													<i class="far fa-edit"></i> Update
-												</a>
+												</button>
+
 												<a href="<?= base_url('a_candidate/delete?candidate_id=' . $can['candidate_id']); ?>" class="btn btn-icon btn-danger deleteButton">
 													<i class="fas fa-times"></i> Delete
 												</a>
 											</li>
+
 										</ul>
 									</td>
 								</tr>

@@ -23,7 +23,7 @@
 							<thead>
 								<tr>
 									<th>ID</th>
-									<th>Username</th>
+									<th>ID - Username</th>
 									<th>Full Name</th>
 									<th>Email</th>
 									<th>User Identity Number</th>
@@ -35,7 +35,7 @@
 								<? foreach ($candidate as $can):?>
 								<tr>
 									<td><?= $can['candidate_id'] ?></td>
-									<td><?= $can['user_id'] ?></td>
+									<td><?= $can['user_name'] ?></td>
 									<td><?= $can['name'] ?></td>
 									<td><?= $can['email'] ?></td>
 									<td><?= $can['nik'] ?></td>

@@ -54,6 +54,10 @@
 			font-weight: bold;
 		}
 
+		.logout a i span :hover {
+			background-color: blue;
+		}
+
 		@media (max-width: 575.98px) {
 			.card-profile img {
 				width: 60%;
@@ -393,12 +397,13 @@
 								</li>
 							</ul>
 						</li>
+						<li class="logout">
+							<a class="nav-link" href="<?= base_url('home/') ?>logout">
+								<i class="fas fa-sign-out-alt"></i>
+								<span>Logout</span>
+							</a>
+						</li>
 					</ul>
-					<div class="mt-4 mb-4 p-3 hide-sidebar-mini sidebar-footer">
-						<a href="<?= base_url('home/') ?>logout" class="btn btn-primary btn-lg btn-block btn-icon-split">
-							<i class="fas fa-sign-out-alt"></i> Logout
-						</a>
-					</div>
 				</aside>
 			</div>
 
