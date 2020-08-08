@@ -45,7 +45,7 @@
 							</div>
 
 							<div class="mt-5 text-center">
-								Don't have an account? <a href="auth-register.html">Create new one</a>
+								Don't have an account? <a href="<?=base_url('register')?>">Create new one</a>
 							</div>
 						</form>
 
