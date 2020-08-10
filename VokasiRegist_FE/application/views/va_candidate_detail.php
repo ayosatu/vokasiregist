@@ -15,7 +15,7 @@
 					</div>
 					<div class="form-group">
 						<label for="">Username</label>
-						<input type="text" class="form-control" value="<?= $candidate['user_id'] ?>" readonly>
+						<input type="text" class="form-control" value="<?= $candidate['user_name'] ?>" readonly>
 					</div>
 					<div class="form-group">
 						<label for="">Fullname</label>

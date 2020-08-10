@@ -330,32 +330,20 @@
 						</li>
 
 						<li class="nav-item dropdown">
-							<a href="#" class="nav-link has-dropdown " data-toggle="dropdown"><i class="ion ion-cube"></i> <span>Admin</span></a>
+							<a href="#" class="nav-link has-dropdown " data-toggle="dropdown">
+								<i class="ion ion-cube"></i>
+								<span>Admin</span>
+							</a>
 							<ul class="dropdown-menu tabs">
 
-								<li class="clicked-tab" data-source="a_candidate" id="a_candidate" menu_id="1">
+								<li class="nav-link" data-source="a_manage_candidate" id="a_manage_candidate" menu_id="1">
 									<a href="#">
-										<i class="ion ion-ios-people"></i><span>Candidate</span>
+										<i class="ion ion-ios-people"></i><span>Candidate List</span>
 									</a>
 								</li>
-								<li class="clicked-tab" data-source="a_canparent" id="a_canparent" menu_id="2">
-									<a href="#">
-										<i class="ion ion-android-people"></i><span>Can Parent</span>
-									</a>
-								</li>
-								<li class="clicked-tab" data-source="a_candocument" id="a_candocument" menu_id="3">
-									<a href="#">
-										<i class="ion ion-android-attach"></i><span>Can Document</span>
-									</a>
-								</li>
-								<li class="clicked-tab" data-source="a_question" id="a_question" menu_id="4">
+								<li class="nav-link" data-source="a_question" id="a_question" menu_id="2">
 									<a href="#">
 										<i class="ion ion-android-create"></i><span>Manage Question</span>
-									</a>
-								</li>
-								<li class="clicked-tab" data-source="a_result" id="a_result" menu_id="5">
-									<a href="#">
-										<i class="ion ion-android-clipboard"></i><span>Manage Result</span>
 									</a>
 								</li>
 							</ul>
@@ -365,32 +353,32 @@
 						<li class="nav-item dropdown">
 							<a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="ion ion-ios-paper"></i> <span>Candidate</span></a>
 							<ul class="dropdown-menu">
-								<li class="clicked-tab" data-source="c_profile" id="c_profile" menu_id="6">
+								<li class="nav-link" data-source="c_profile" id="c_profile" menu_id="6">
 									<a href="#">
 										<i class="ion ion-ios-people"></i><span>My Profile</span>
 									</a>
 								</li>
-								<li class="clicked-tab" data-source="home/my_profile" id="c_parent" menu_id="7">
+								<li class="nav-link" data-source="home/my_profile" id="c_parent" menu_id="7">
 									<a href="#">
 										<i class="ion ion-android-people"></i><span>My Parent</span>
 									</a>
 								</li>
-								<li class="clicked-tab" data-source="home/my_profile" id="c_document" menu_id="8">
+								<li class="nav-link" data-source="home/my_profile" id="c_document" menu_id="8">
 									<a href="#">
 										<i class="ion ion-android-attach"></i><span>My Document</span>
 									</a>
 								</li>
-								<li class="clicked-tab" data-source="c_test" id="c_test" menu_id="9">
+								<li class="nav-link" data-source="c_test" id="c_test" menu_id="9">
 									<a href="#">
 										<i class="ion ion-android-create"></i><span>Test</span>
 									</a>
 								</li>
-								<li class="clicked-tab" data-source="home/my_profile" id="c_result_test" menu_id="10">
+								<li class="nav-link" data-source="home/my_profile" id="c_result_test" menu_id="10">
 									<a href="#">
 										<i class="ion ion-android-clipboard"></i><span>Result Test</span>
 									</a>
 								</li>
-								<li class="clicked-tab" data-source="home/my_profile" id="c_interview" menu_id="11">
+								<li class="nav-link" data-source="home/my_profile" id="c_interview" menu_id="11">
 									<a href="#">
 										<i class="ion ion-ios-eye"></i><span>Interview</span>
 									</a>

@@ -42,7 +42,7 @@
 	$(document).ready(function() {
 		function ajaxLoadContent(controller, params) {
 			$.ajax({
-				url: "<?= base_url(); ?>" + controller,
+				url: "<?= site_url(); ?>" + controller,
 				type: "POST",
 				data: params,
 				success: function(data) {
@@ -60,14 +60,14 @@
 			return;
 		}
 
-		$('.clicked-tab').click(function() {
+		$('.nav-link').click(function() {
 			var controllerName = $(this).attr('data-source');
 
 			if (!controllerName) {
 
 			} else {
 				var menu_id = $(this).attr('menu-id');
-				$('.clicked-tab').removeClass('active');
+				$('.nav-link').removeClass('active');
 				$(this).addClass('active');
 				$(this).parent('ul').parent('li').addClass('active');
 
@@ -80,6 +80,7 @@
 		});
 	});
 </script>
+
 </body>
 
 </html>

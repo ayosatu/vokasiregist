@@ -65,6 +65,10 @@ class Auth extends CI_Controller
 			redirect('auth');
 		}
 
+		if ($this->session->userdata('remember_me') == 1) {
+			redirect('home');
+		}
+
 		$this->form_validation->set_rules('user_name', 'Username', 'required');
 		$this->form_validation->set_rules('user_password', 'Password', 'required');
 		$this->form_validation->set_rules('otp_val', 'OTP Code', 'required');

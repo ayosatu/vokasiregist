@@ -10,6 +10,7 @@ class A_Candidate extends CI_Controller
 		//Load Library Form Validation
 		$this->load->library('form_validation');
 		$this->load->library('email');
+		$this->load->library('pagination');
 	}
 
 	//FORM LOGIN ACCOUNT
@@ -24,7 +25,7 @@ class A_Candidate extends CI_Controller
 
 	private function getData()
 	{
-		$candidate_id = $this->input->get('id');
+		$candidate_id = $this->input->post('id');
 
 		$id = ['candidate_id' => $candidate_id];
 		$data['candidate'] = $this->db->get_where('vw_list_candidate', $id)->row_array();
@@ -40,31 +41,55 @@ class A_Candidate extends CI_Controller
 	public function loadUpdateDisplay()
 	{
 		$data = $this->getData();
+		$data['religion'] = $this->db->get('vw_ref_religion')->result_array();
+		$data['gender'] = $this->db->get('vw_ref_gender')->result_array();
 		$this->load->view('va_candidate_update', $data);
 	}
+
 	public function update()
 	{
-		echo 'Function Update';
-		die();
+		$istr_operator = 'U';
+		$istr_candidate_id = ($this->input->post('istr_candidate_id') == NULL) ? NULL : $this->input->post('istr_candidate_id');
+		$istr_user_id = ($this->input->post('istr_user_id') == NULL) ? NULL : $this->input->post('istr_user_id');
+		$istr_name = ($this->input->post('istr_name') == NULL) ? NULL : $this->input->post('istr_name');
+		$istr_email = ($this->input->post('istr_email') == NULL) ? NULL : $this->input->post('istr_email');
+		$istr_birth_place = ($this->input->post('istr_birth_place') == NULL) ? NULL : $this->input->post('istr_birth_place');
+		$istr_nik = ($this->input->post('istr_nik') == NULL) ? NULL : $this->input->post('istr_nik');
+		$istr_no_tlp = ($this->input->post('istr_no_tlp') == NULL) ? NULL : $this->input->post('istr_no_tlp');
+		$istr_no_hp = ($this->input->post('istr_no_hp') == NULL) ? NULL : $this->input->post('istr_no_hp');
+		$istr_birth = ($this->input->post('istr_birth') == NULL) ? NULL : $this->input->post('istr_birth');
+		$istr_img_path = ($this->input->post('istr_img_path') == NULL) ? NULL : $this->input->post('istr_img_path');
+		$istr_address = ($this->input->post('istr_address') == NULL) ? NULL : $this->input->post('istr_address');
+		$istr_adm = ($this->input->post('istr_adm') == NULL) ? NULL : $this->input->post('istr_adm');
+		$istr_gender_id = ($this->input->post('istr_gender_id') == NULL) ? NULL : $this->input->post('istr_gender_id');
+		$istr_religion_id = ($this->input->post('istr_religion_id') == NULL) ? NULL : $this->input->post('istr_religion_id');
+		$istr_result_id = ($this->input->post('istr_result_id') == NULL) ? NULL : $this->input->post('istr_result_id');
+		$istr_unit_id_take = ($this->input->post('istr_unit_id_take') == NULL) ? NULL : $this->input->post('istr_unit_id_take');
 
-		$datapost = [
-			'action' => 'U'
-			// 'qr_candidate_id' => $candidate_id
-		];
+		$sql = "select * from f_crud_candidate(
+			'" . $istr_operator . "',
+			'" . $istr_candidate_id . "',
+			'" . $istr_user_id . "',
+			'" . $istr_name . "',
+			'" . $istr_email . "',
+			'" . $istr_birth_place . "',
+			'" . $istr_nik . "',
+			'" . $istr_no_tlp . "',
+			'" . $istr_no_hp . "',
+			'" . $istr_birth . "',
+			'" . $istr_img_path . "',
+			'" . $istr_address . "',
+			'" . $istr_adm . "',
+			'" . $istr_gender_id . "',
+			'" . $istr_religion_id . "',
+			'" . $istr_result_id . "',
+			'" . $istr_unit_id_take . "'
+			)";
+		$data = $this->db->query($sql)->row_array();
 
-		$respond = json_decode($this->curl->simple_post($this->API . 'M_Candidate', $datapost), true);
-
-
-		if ($respond['status'] == 1) {
-			$this->session->set_flashdata(
-				'msg',
-				' Data Has Been Updated!'
-			);
-		} else {
-			$this->session->set_flashdata(
-				'msgfail',
-				'Error : ' . $respond['status']
-			);
+		if ($data['oint_res'] == 1) {
+			echo 'Success';
+			die();
 		}
 	}
 
