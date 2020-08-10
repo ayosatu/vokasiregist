@@ -6,17 +6,32 @@
 
 <section class="section">
 	<div class="section-header">
-		<h1>Question</h1>
+		<h1>Manage Question</h1>
 	</div>
 	<div class="row">
 		<div class="col-md-12">
-			<div class="card card-primary">
+			<ul class="nav nav-pills">
+				<li class="nav-item">
+					<a class="nav-link active " style="border-bottom-right-radius: 0px;border-bottom-left-radius: 0px;" href="#">
+						<i class="ion ion-clipboard"></i>
+						Question List
+					</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" style="border-bottom-right-radius: 0px;border-bottom-left-radius: 0px;" href="#">
+						<i class="ion ion-compose"></i>
+						Question Answer
+					</a>
+				</li>
+			</ul>
+			<div class="card card-primary" style="border-top-left-radius: 0px;">
 				<div class="card-header ">
 					<h4>Manage Question</h4>
 				</div>
 				<div class="card-body">
 					<div class="flashdatafail" data-flashdata="<?= $this->session->flashdata('msgfail'); ?>"></div>
 					<div class="flashdata" data-flashdata="<?= $this->session->flashdata('msg'); ?>"></div>
+
 					<div class="owl-carousel owl-theme" id="products-carousel">
 						<table id="example" class="table table-striped table-bordered" style="width:100%">
 							<thead>
@@ -69,3 +84,46 @@
 		</div>
 	</div>
 </section>
+
+<script>
+	$(document).ready(function() {
+		function ajaxLoadContent(controller, params) {
+			$.ajax({
+				url: "<?= base_url(); ?>" + controller,
+				type: "POST",
+				data: params,
+				success: function(data) {
+					$(".page-load").html(data);
+				},
+				error: function(xhr, status, error) {
+					swal.fire({
+						title: "Error",
+						text: xhr.responseText,
+						html: 404,
+						type: "error"
+					});
+				}
+			});
+			return;
+		}
+
+		$('.nav-link').click(function() {
+			var controllerName = $(this).attr('data-source');
+
+			if (!controllerName) {
+
+			} else {
+				var menu_id = $(this).attr('menu-id');
+				$('.nav-link').removeClass('active');
+				$(this).addClass('active');
+				$(this).parent('ul').parent('li').addClass('active');
+
+				ajaxLoadContent(
+					controllerName, {
+						menu_id: menu_id
+					}
+				);
+			}
+		});
+	});
+</script>
