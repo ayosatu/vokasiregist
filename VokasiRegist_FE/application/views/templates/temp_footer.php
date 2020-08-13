@@ -40,11 +40,11 @@
 
 <script>
 	$(document).ready(function() {
-		function ajaxLoadContent(controller, params) {
+		function ajaxLoadContent(controller) {
 			$.ajax({
 				url: "<?= site_url(); ?>" + controller,
 				type: "POST",
-				data: params,
+				data: null,
 				success: function(data) {
 					$(".page-load").html(data);
 				},
@@ -71,11 +71,7 @@
 				$(this).addClass('active');
 				$(this).parent('ul').parent('li').addClass('active');
 
-				ajaxLoadContent(
-					controllerName, {
-						menu_id: menu_id
-					}
-				);
+				ajaxLoadContent(controllerName);
 			}
 		});
 	});
