@@ -21,6 +21,7 @@
 	<!-- Template CSS -->
 	<link rel="stylesheet" href="<?= base_url('assets') ?>/css/style.css">
 	<link rel="stylesheet" href="<?= base_url('assets') ?>/css/components.css">
+	<link rel="stylesheet" href="<?= base_url('assets') ?>/css/scroll.css">
 	<link rel="stylesheet" href="https://cdn.datatables.net/1.10.21/css/dataTables.bootstrap4.min.css">
 
 
