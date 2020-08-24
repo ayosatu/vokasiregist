@@ -13,23 +13,78 @@
 	<div class="row">
 		<div class="col-md-12">
 			<div class="card card-primary">
-				<div class="card-header">
+				<div class="card-header ">
 					<h4>My Profile</h4>
 				</div>
-				<div>
-					<h5>Name</h5>
-					<?= $profile['name']; ?>
-					<div class="card-header card-profile">
-						<img src="<?= base_url() . $profile['img_path']; ?>" alt="">
+				<form method="post" action="" class="form-horizontal" id="form-profile">
+				<div class="col-md-6 float-left">
+					<div class="from-group">
+						<h6 class="col-md-4">Name</h6>
+						<div class="col-md-12">
+                            <input type="text" name="name"  class="form-control" value="<?= $vw_candidate['name'] ?>">
+                    	</div>	
+					</div>
+					<div class="from-group">
+						<h6 class="col-md-4 mt-4">Email</h6>
+						<div class="col-md-12">
+                            <input type="text" name="email"  class="form-control" value="<?= $vw_candidate['email'] ?>">
+                    	</div>	
+					</div>
+					<div class="from-group">
+						<h6 class="col-md-4 mt-4">Birth Place</h6>
+						<div class="col-md-12">
+                            <input type="text" name="birth_place"  class="form-control" value="<?= $vw_candidate['birth_place'] ?>">
+                        </div>	
+					</div>
+					<div class="from-group">
+						<h6 class="col-md-4 mt-4">NIK</h6>
+						<div class="col-md-12">
+                            <input type="text" name="nik"  class="form-control" value="<?= $vw_candidate['nik'] ?>">
+                        </div>	
+					</div>
+					<div class="from-group">
+						<h6 class="col-md-4 mt-4 mb-4">Username</h6>
+						<div class="col-md-12">
+                            <input type="text" name="address"  readonly="" class="form-control" value="<?= $vw_candidate['user_name'] ?>">
+                        </div>	
 					</div>
 				</div>
-				<div class="card-body">
-					<div class="flashdatafail" data-flashdata="<?= $this->session->flashdata('msgfail'); ?>"></div>
-					<div class="flashdata" data-flashdata="<?= $this->session->flashdata('msg'); ?>"></div>
-					<div class="owl-carousel owl-theme" id="products-carousel">
-
+				<div class='col-md-6 float-right'>
+					<div class="from-group">
+						<h6 class="col-md-4">No Tlp</h6>
+						<div class="col-md-12">
+                            <input type="text" name="no_tlp"  class="form-control" value="<?= $vw_candidate['no_tlp'] ?>">
+                        </div>	
+					</div>
+					<div class="from-group">
+						<h6 class="col-md-4 mt-4">No Hp</h6>
+						<div class="col-md-12">
+                            <input type="text" name="no_hp"  class="form-control" value="<?= $vw_candidate['no_hp'] ?>">
+                        </div>	
+					</div>
+					<div class="from-group">
+						<h6 class="col-md-4 mt-4 ">Birth Date</h6>
+						<div class="col-md-12">
+                            <input type="text" name="birth_date"  class="form-control" value="<?= $vw_candidate['birth_date'] ?>">
+                        </div>	
+					</div>
+					<div class="from-group">
+						<h6 class="col-md-4 mt-4 ">Address</h6>
+						<div class="col-md-12">
+                            <input type="text" name="address"  class="form-control" value="<?= $vw_candidate['address'] ?>">
+                        </div>	
+					</div>
+					<div class="from-group">
+						<h6 class="col-md-4 mt-4 mb-4">Password</h6>
+						<div class="col-md-12">
+                            <input type="text" name="address" class="form-control" value="<?= $vw_candidate['user_password'] ?>">
+                        </div>	
 					</div>
 				</div>
+				<button type="button" class="btn btn-icon btn-primary mt-4 ml-4">Submit</button>
+				<button type="button" class="btn btn-icon btn-secondary mt-4">cancel</button>
+					
+                </form>
 			</div>
 		</div>
 	</div>

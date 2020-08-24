@@ -17,11 +17,6 @@ class C_Profile extends CI_Controller
 	//FORM LOGIN ACCOUNT
 	public function index()
 	{
-		//$user_session = $this->session->userdata('candidate_id');
-		//$this->db->query("SELECT * FROM users WHERE user_id = 12");
-		//$get = $this->input->get('c_profile', true);
-		// $data['users'] = $this->db->get_where('users', array('user_id' => 12))->row_array();
-		$data['profile'] = $this->db->get('candidate')->row_array();
-		$this->load->view('v_profile', $data);
+		
 	}
 }
