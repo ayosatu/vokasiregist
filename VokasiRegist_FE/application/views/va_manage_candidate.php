@@ -97,7 +97,7 @@
 									<thead>
 										<tr>
 											<th>NO</th>
-											<th>ID - Username</th>
+											<th>ID - CandidateName</th>
 											<th>Full Name</th>
 											<th>Email</th>
 											<th>User Identity Number</th>
@@ -107,17 +107,17 @@
 									</thead>
 									<tbody>
 										<? $i = 0?>
-										<? foreach ($candidate as $can):?>
+										<? foreach ($c_parent as $c):?>
 										<? $i += 1?>
 										<tr>
 											<td><?= $i ?></td>
-											<td><?= $can['user_name'] ?></td>
-											<td><?= $can['name'] ?></td>
-											<td><?= $can['email'] ?></td>
-											<td><?= $can['nik'] ?></td>
-											<td><?= $can['address'] ?></td>
+											<td><?= $c['name'] ?></td>
+											<td><?= $c['name'] ?></td>
+											<td><?= $c['email'] ?></td>
+											<td><?= $c['nik'] ?></td>
+											<td><?= $c['address'] ?></td>
 											<td style=" text-align: center;">
-												<a href="#" class="btn btn-icon btn-primary has-dropdown" data-toggle="dropdown"><i class="ion ion-ios-person"></i> <span>Manage Candidate</span></a>
+												<a href="#" class="btn btn-icon btn-primary has-dropdown" data-toggle="dropdown"><i class="ion ion-ios-person"></i> <span>Manage Parent</span></a>
 												<ul class="dropdown-menu" style="width: 40%; text-align:center">
 
 													<li>
@@ -125,7 +125,7 @@
 															<i class="far fa-file"></i> Documents
 														</a>
 
-														<a href="#myModal" data-toggle="modal" class="btn btn-icon btn-info">
+														<a href="#myModalParent" data-toggle="modal" class="btn btn-icon btn-info">
 															<i class="fas fa-info-circle"></i> Detail
 														</a>
 
@@ -133,7 +133,7 @@
 															<i class="far fa-edit"></i> Update
 														</a>
 
-														<a href="#" class="btn btn-icon btn-danger" onclick="deleteData(<?= $can['candidate_id'] ?>)">
+														<a href="#" class="btn btn-icon btn-danger" onclick="deleteData(<?= $c['c_parent_id'] ?>)">
 															<i class="fas fa-times"></i> Delete
 														</a>
 													</li>
@@ -262,6 +262,125 @@
 
 
 
+	<div class="modal fade" id="myModalParent" role="dialog">
+		<div class="modal-dialog modal-lg">
+			<!-- Modal content-->
+			<div class="modal-content">
+				<div class="modal-body modal-output">
+					<div class="row">
+						<div class="col-12 col-md-12 col-lg-12">
+							<div class="card">
+								<div class="card-body">
+									<form>
+										<div class="form-group">
+											<label for="istr_user_id">CandidateName</label>
+											<input type="text" class="form-control" name="istr_user_id" value="" readonly>
+										</div>
+										<div class="form-group">
+											<label for="istr_name">Fullname</label>
+											<input type="text" class="form-control" name="istr_name" value="">
+										</div>
+										<div class="form-group">
+											<label for="istr_email">Email</label>
+											<input type="text" class="form-control" name="istr_email" value="">
+										</div>
+										<div class="form-group">
+											<label for="istr_email">Job</label>
+											<input type="text" class="form-control" name="istr_email" value="">
+										</div>
+										<div class="form-group">
+											<label for="istr_birth_place">Birth Place</label>
+											<input type="text" class="form-control" name="istr_birth_place" value="">
+										</div>
+										<div class="form-group">
+											<label for="istr_nik">NIK</label>
+											<input type="text" class="form-control" name="istr_nik" value="">
+										</div>
+										<div class="form-group">
+											<label for="istr_no_tlp">Telephone Number</label>
+											<input type="text" class="form-control" name="istr_no_tlp" value="">
+										</div>
+										<div class="form-group">
+											<label for="in_relation_status_id">Relation Status</label>
+											<select class="form-control form-control-sm" name="in_relation_status_id">
+												<option value="">Default Choice - </option>
+												<? foreach ($relation as $rlt):?>
+												<option value="<?= $rlt['p_reference_list_id'] ?>"><?= $rlt['description'] ?></option>
+												<?endforeach;?>
+											</select>
+										</div>
+										<div class="form-group">
+											<label for="istr_birth">Birth Date</label>
+											<input type="date" class="form-control" name="istr_birth" value="">
+										</div>
+										<!-- <div class="form-group">
+											<label for="istr_img_path">Image Path</label>
+											<input type="text" class="form-control" name="istr_img_path" value="">
+										</div> -->
+										<div class="form-group">
+											<label for="istr_address">Address</label>
+											<input type="text" class="form-control" name="istr_address" value="">
+										</div>
+										<div class="form-group">
+											<label for="in_gender_id">Gender</label>
+											<select class="form-control form-control-sm" name="in_gender_id">
+												<option value="">Default Choice - </option>
+												<? foreach ($gender as $gnd):?>
+												<option value="<?= $gnd['p_reference_list_id'] ?>"><?= $gnd['description'] ?></option>
+												<?endforeach;?>
+											</select>
+										</div>
+										<div class="form-group">
+											<label for="istr_religion_id">Religion</label>
+											<select class="form-control form-control-sm" name="istr_religion_id">
+												<option value="">Default Choice - </option>
+												<? foreach ($religion as $rlg):?>
+												<option value="<?= $rlg['p_reference_list_id'] ?>"><?= $rlg['description'] ?></option>
+												<?endforeach;?>
+											</select>
+										</div>
+										<!-- <div class="form-group">
+											<label for="istr_result_id">Result</label>
+											<input type="text" class="form-control" name="istr_result_id" value="">
+										</div> -->
+										<div class="form-group">
+											<label for="">Created Date</label>
+											<input type="text" class="form-control" name="" value="" readonly>
+										</div>
+										<div class="form-group">
+											<label for="">Created By</label>
+											<input type="text" class="form-control" name="" value="" readonly>
+										</div>
+										<div class="form-group">
+											<label for="">Update Date</label>
+											<input type="text" class="form-control" name="" value="" readonly>
+										</div>
+										<div class="form-group">
+											<label for="">Update By</label>
+											<input type="text" class="form-control" name="" value="" readonly>
+										</div>
+
+										<button type="button" data-dismiss="modal" class="btn btn-icon btn-primary">
+											<i class="ion ion-arrow-left-a"></i> Cancel
+										</button>
+										<button type="button" id="btn-update" onclick="updateData()" class="btn btn-icon btn-success">
+											<i class="far fa-edit"></i> Update
+										</button>
+										<button type="button" id="btn-delete" onclick="deleteData()" class="btn btn-icon btn-danger">
+											<i class="fas fa-times"></i> Delete
+										</button>
+									</form>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+
 	<script type="text/javascript">
 		function submit(action) {
 			if (action == 'updateData') {
@@ -341,5 +460,8 @@
 		}
 	});
 		</script> -->
+
+
+		
 
 </div>

@@ -23,6 +23,7 @@ class A_Manage_Candidate extends CI_Controller
 	public function getData()
 	{
 		$data['candidate'] = $this->MAG->getData('vw_list_candidate');
+		$data['c_parent'] = $this->MAG->getData('vw_c_parent');
 		$data['religion'] = $this->MAG->getData('vw_ref_religion');
 		$data['gender'] = $this->MAG->getData('vw_ref_gender');
 		return $data;
@@ -34,6 +35,7 @@ class A_Manage_Candidate extends CI_Controller
 		echo json_encode($data);
 	}
 
+
 	public function deleteData()
 	{
 		$id = $this->input->post('id');
@@ -41,6 +43,13 @@ class A_Manage_Candidate extends CI_Controller
 		$this->db->delete('candidate');
 		$data = $this->getData();
 
+		$id = $this->input->post('id');
+		$this->db->where(['c_parent_id' => $id]);
+		$this->db->delete('c_parent');
+		$data = $this->getData();
+
 		return $this->load->view('va_manage_candidate', $data);
 	}
+
+	
 }
