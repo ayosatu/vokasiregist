@@ -26,6 +26,7 @@ class A_Manage_Candidate extends CI_Controller
 		$data['c_parent'] = $this->MAG->getData('vw_c_parent');
 		$data['religion'] = $this->MAG->getData('vw_ref_religion');
 		$data['gender'] = $this->MAG->getData('vw_ref_gender');
+		$data['p_reference_list'] = $this->MAG->getData('vw_list_relation');
 		return $data;
 	}
 

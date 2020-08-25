@@ -121,7 +121,7 @@
 												<ul class="dropdown-menu" style="width: 40%; text-align:center">
 
 													<li>
-														<a href="#myModal" data-toggle="modal" class="btn btn-icon icon-left btn-dark">
+														<a href="#myModalParent" data-toggle="modal" class="btn btn-icon icon-left btn-dark">
 															<i class="far fa-file"></i> Documents
 														</a>
 
@@ -129,7 +129,7 @@
 															<i class="fas fa-info-circle"></i> Detail
 														</a>
 
-														<a href="#myModal" data-toggle="modal" class="btn btn-icon btn-success" onclick="submit('updateData')">
+														<a href="#myModalParent" data-toggle="modal" class="btn btn-icon btn-success" onclick="submit('updateData',<?= $c['c_parent_id'] ?>)">
 															<i class="far fa-edit"></i> Update
 														</a>
 
@@ -273,53 +273,53 @@
 								<div class="card-body">
 									<form>
 										<div class="form-group">
-											<label for="istr_user_id">CandidateName</label>
-											<input type="text" class="form-control" name="istr_user_id" value="" readonly>
+											<label for="in_candidate_id">CandidateName</label>
+											<input id="in_candidate_id" type="text" class="form-control" name="in_candidate_id" value="" readonly>
 										</div>
 										<div class="form-group">
-											<label for="istr_name">Fullname</label>
-											<input type="text" class="form-control" name="istr_name" value="">
+											<label for="in_name">Fullname</label>
+											<input type="text" class="form-control" name="in_name" value="">
 										</div>
 										<div class="form-group">
-											<label for="istr_email">Email</label>
-											<input type="text" class="form-control" name="istr_email" value="">
+											<label for="in_email">Email</label>
+											<input type="text" class="form-control" name="in_email" value="">
 										</div>
 										<div class="form-group">
-											<label for="istr_email">Job</label>
-											<input type="text" class="form-control" name="istr_email" value="">
+											<label for="in_job">Job</label>
+											<input type="text" class="form-control" name="in_job" value="">
 										</div>
 										<div class="form-group">
-											<label for="istr_birth_place">Birth Place</label>
-											<input type="text" class="form-control" name="istr_birth_place" value="">
+											<label for="in_birth_place">Birth Place</label>
+											<input type="text" class="form-control" name="in_birth_place" value="">
 										</div>
 										<div class="form-group">
-											<label for="istr_nik">NIK</label>
-											<input type="text" class="form-control" name="istr_nik" value="">
+											<label for="in_nik">NIK</label>
+											<input type="text" class="form-control" name="in_nik" value="">
 										</div>
 										<div class="form-group">
-											<label for="istr_no_tlp">Telephone Number</label>
-											<input type="text" class="form-control" name="istr_no_tlp" value="">
+											<label for="in_no_tlp">Telephone Number</label>
+											<input type="text" class="form-control" name="in_no_tlp" value="">
 										</div>
 										<div class="form-group">
 											<label for="in_relation_status_id">Relation Status</label>
 											<select class="form-control form-control-sm" name="in_relation_status_id">
 												<option value="">Default Choice - </option>
-												<? foreach ($relation as $rlt):?>
+												<? foreach ($p_reference_list as $rlt):?>
 												<option value="<?= $rlt['p_reference_list_id'] ?>"><?= $rlt['description'] ?></option>
 												<?endforeach;?>
 											</select>
 										</div>
 										<div class="form-group">
-											<label for="istr_birth">Birth Date</label>
-											<input type="date" class="form-control" name="istr_birth" value="">
+											<label for="in_birth">Birth Date</label>
+											<input type="date" class="form-control" name="in_birth" value="">
 										</div>
 										<!-- <div class="form-group">
 											<label for="istr_img_path">Image Path</label>
 											<input type="text" class="form-control" name="istr_img_path" value="">
 										</div> -->
 										<div class="form-group">
-											<label for="istr_address">Address</label>
-											<input type="text" class="form-control" name="istr_address" value="">
+											<label for="in_address">Address</label>
+											<input type="text" class="form-control" name="in_address" value="">
 										</div>
 										<div class="form-group">
 											<label for="in_gender_id">Gender</label>
@@ -331,8 +331,8 @@
 											</select>
 										</div>
 										<div class="form-group">
-											<label for="istr_religion_id">Religion</label>
-											<select class="form-control form-control-sm" name="istr_religion_id">
+											<label for="in_religion_id">Religion</label>
+											<select class="form-control form-control-sm" name="in_religion_id">
 												<option value="">Default Choice - </option>
 												<? foreach ($religion as $rlg):?>
 												<option value="<?= $rlg['p_reference_list_id'] ?>"><?= $rlg['description'] ?></option>
@@ -382,10 +382,13 @@
 
 
 	<script type="text/javascript">
-		function submit(action) {
+		function submit(action,id) {
+
 			if (action == 'updateData') {
+
 				$('#btn-update').show();
 				$('#btn-delete').hide();
+				$('#in_candidate_id').val(id);
 			} else if (action == 'deleteData') {
 				$('#btn-update').hide();
 				$('#btn-delete').show();
