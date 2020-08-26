@@ -17,6 +17,38 @@ class C_Profile extends CI_Controller
 	//FORM LOGIN ACCOUNT
 	public function index()
 	{
-		
+			$sql = "select * from candidate";
+			$data['candidate'] = $this->db->query($sql)->result_array();
+
+			$sql = "select * from religion";
+			$data['religion'] = $this->db->query($sql)->result_array();
+
+			$sql = "select * from gender";
+			$data['gender'] = $this->db->query($sql)->result_array();
+
+			$sql = "select * from vw_candidate_user";
+			$data['vw_candidate'] = $this->db->query($sql)->row_array();
+			
+			
+			$this->load->view('templates/temp_header');
+			$this->load->view('v_profile',$data);
+			$this->load->view('templates/temp_footer');
 	}
+
+	public function ProfileUpdate()
+	{
+		$istr_action = 'U';
+		$istr_name = $this->input->post('istr_name');
+		$istr_email = $this->input->post('istr_email');
+		$istr_birth_place = $this->input->post('istr_birth_place');
+		$istr_nik = $this->input->post('istr_nik');
+		$ddlgender = $this->input->post('ddlgender');
+		$istr_img_path = $this->input->post('istr_img_path');
+		$istr_no_tlp = $this->input->post('istr_no_tlp');
+		$istr_no_hp = $this->input->post('istr_no_hp');
+		$idt_birth_date = $this->input->post('idt_birth_date');
+		$istr_address = $this->input->post('istr_address');
+		$ddlregion = $this->input->post('ddlregion');
+	}
+
 }
